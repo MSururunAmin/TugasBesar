@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keuangan Desa</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+        .container-fluid {
+            flex: 1;
+        }
+        .sidebar {
+            height: 100%;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-right: 1px solid #ddd;
+        }
+        .main-content {
+            padding: 15px;
+        }
+        .sidebar a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<header class="bg-primary text-white text-center py-3">
+    <h1>Keuangan Desa</h1>
+</header>
+
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 sidebar">
+            <h4>Menu</h4>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#laporan-keuangan">Laporan Keuangan</a>
+            <a href="#pengeluaran">Pengeluaran</a>
+            <a href="#pemasukan">Pemasukan</a>
+            <a href="#kontak">Kontak</a>
+        </nav>
+
+        <main class="col-md-10 main-content">
+            <h2 id="dashboard">Dashboard</h2>
+            <p>Selamat datang di sistem informasi keuangan desa.</p>
+
+            <h2 id="laporan-keuangan">Laporan Keuangan</h2>
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>No</th>
+                        <th>Deskripsi</th>
+                        <th>Tanggal</th>
+                        <th>Pemasukan</th>
+                        <th>Pengeluaran</th>
+                        <th>Saldo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Penjualan hasil panen</td>
+                        <td>01/07/2024</td>
+                        <td>Rp 5.000.000</td>
+                        <td>-</td>
+                        <td>Rp 5.000.000</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Pembangunan jalan</td>
+                        <td>05/07/2024</td>
+                        <td>-</td>
+                        <td>Rp 2.000.000</td>
+                        <td>Rp 3.000.000</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 id="pemasuka">Pemasukan</h2>
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>No</th>
+                        <th>Deskripsi</th>
+                        <th>Tanggal</th>
+                        <th>Pemasukan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Penjualan Hasil Panen</td>
+                        <td>01/07/2024</td>
+                        <td>Rp 2.000.000</td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+            <h2 id="pengeluaran">Pengeluaran</h2>
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>No</th>
+                        <th>Deskripsi</th>
+                        <th>Tanggal</th>
+                        <th>Pengeluaran</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Pembangunan Jalan</td>
+                        <td>05/07/2024</td>
+                        <td>Rp 2.000.000</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 id="kontak">Kontak</h2>
+            <p>Hubungi kami di <a href="mailto:info@desa.id">info@desa.id</a></p>
+        </main>
+    </div>
+</div>
+
+<footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2024 Desa</p>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
