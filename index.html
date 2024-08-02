@@ -3,21 +3,461 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Belajar Javascript</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Desa Sungai Jering</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* General Styles */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: #f4f4f9;
+      }
+
+      /* Styles for the header */
+      .header-top {
+        background-color: #005b96;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid #004d40;
+      }
+
+      .contact-info,
+      .location {
+        font-size: 14px;
+      }
+
+      nav {
+        background-color: #004d40;
+        color: white;
+      }
+
+      nav .logo {
+        display: flex;
+        align-items: center;
+      }
+
+      nav .logo img {
+        height: 50px;
+        margin-right: 10px;
+      }
+
+      nav ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: space-around;
+        margin: 0;
+      }
+
+      nav ul li {
+        position: relative;
+      }
+
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        padding: 15px;
+        display: block;
+      }
+
+      nav ul li ul.dropdown {
+        display: none;
+        position: absolute;
+        background-color: #00695c;
+        top: 100%;
+        left: 0;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        min-width: 200px;
+      }
+
+      nav ul li:hover ul.dropdown {
+        display: block;
+      }
+
+      nav ul li ul.dropdown li a {
+        padding: 10px;
+      }
+
+      .tampilan-desa {
+        text-align: center;
+        padding: 50px 0;
+        background-image: url("desa-bg.jpg");
+        background-size: cover;
+        color: white;
+        background-position: center;
+        box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
+      }
+
+      .tampilan-desa h1 {
+        font-size: 2.5rem;
+        margin: 0;
+      }
+
+      .services {
+        display: flex;
+        justify-content: space-around;
+        padding: 20px;
+        background-color: #e0f2f1;
+      }
+
+      .services div {
+        text-align: center;
+        max-width: 200px;
+      }
+
+      .services div img {
+        width: 100px;
+        height: 100px;
+      }
+
+      .articles {
+        padding: 20px;
+        max-width: 1200px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+      }
+
+      .article {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s;
+      }
+
+      .article:hover {
+        transform: translateY(-10px);
+      }
+
+      .article img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .article-content {
+        padding: 20px;
+      }
+
+      .article h2 {
+        margin-top: 0;
+        font-size: 1.5rem;
+      }
+
+      .article p {
+        color: #555;
+      }
+
+      .announcements,
+      .agenda,
+      .news {
+        background-color: white;
+        padding: 20px;
+        margin: 20px auto;
+        max-width: 800px;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .announcements h2,
+      .agenda h2,
+      .news h2 {
+        font-size: 1.5rem;
+        border-bottom: 2px solid #004d40;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+      }
+
+      .announcements a,
+      .agenda a,
+      .news a {
+        display: block;
+        color: #004d40;
+        text-decoration: none;
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      .announcements a:hover,
+      .agenda a:hover,
+      .news a:hover {
+        background-color: #004d40;
+        color: white;
+      }
+      /* Styles for the footer */
+      footer {
+        background-color: #004d40;
+        color: white;
+        padding: 40px 0;
+        margin-top: 50px;
+      }
+
+      .footer-content {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        padding: 0 20px;
+        max-width: 1200px;
+        margin: auto;
+      }
+
+      .footer-section {
+        flex: 1;
+        min-width: 200px;
+        margin: 10px;
+      }
+
+      .footer-section h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+        border-bottom: 2px solid #48cae4;
+        padding-bottom: 5px;
+      }
+
+      .footer-section p,
+      .footer-section ul {
+        font-size: 0.9rem;
+        margin: 0;
+        padding: 0;
+      }
+
+      .footer-section ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer-section ul li {
+        margin-bottom: 5px;
+      }
+
+      .footer-section ul li a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-section ul li a:hover {
+        color: #ade8f4;
+      }
+
+      .footer-section a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-section a:hover {
+        color: #ade8f4;
+      }
+
+      .socials {
+        display: flex;
+        gap: 10px;
+      }
+
+      .socials a img {
+        width: 24px;
+        height: 24px;
+        filter: invert(100%);
+        transition: filter 0.3s;
+      }
+
+      .socials a img:hover {
+        filter: invert(80%);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .footer-content {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div class="container">
+    <header>
+      <div class="header-top">
+        <div class="contact-info">
+          <span>📞 022-6623181 | 📧 pemdes@Sungai-Jering.desa.id</span>
+        </div>
+        <div class="location">
+          <span>Kabupaten Bandung Barat</span>
+        </div>
+      </div>
       <nav>
-        <a onclick="reRender()" id="home">HOME</a>
-        <a onclick="darkMode()" id="mode">MODE</a>
-        <a onclick="modeDark()" id="Modered">MODERED</a>
+        <div class="logo">
+          <img src="logo.png" alt="Desa Sungai Jering" />
+          <span>Desa Sungai Jering</span>
+        </div>
+        <ul>
+          <li>
+            <a href="index.html">Profil Desa</a>
+            <ul class="dropdown">
+              <li><a href="tentang-kami.html">Tentang Kami</a></li>
+              <li><a href="visi-misi.html">Visi & Misi</a></li>
+              <li><a href="sejarah-desa.html">Sejarah Desa</a></li>
+              <li><a href="geografis-desa.html">Geografis Desa</a></li>
+              <li><a href="demografi-desa.html">Demografi Desa</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="transparansi.html">Transparansi</a>
+            <ul class="dropdown">
+              <li><a href="apbdesa.html">APBDesa</a></li>
+              <li>
+                <a href="perencanaan-pembangunan.html"
+                  >Perencanaan Pembangunan</a
+                >
+              </li>
+              <li><a href="pembangunan-desa.html">Pembangunan Desa</a></li>
+            </ul>
+          </li>
+          <li><a href="pemerintahan.html">Pemerintahan</a></li>
+          <li><a href="informasi-publik.html">Informasi Publik</a></li>
+          <li><a href="potensi-desa.html">Potensi Desa</a></li>
+          <li><a href="produk-desa.html">Produk Desa</a></li>
+        </ul>
       </nav>
-      <h1>Cuyy Universitas</h1>
-      <p class="info" id="info"></p>
+    </header>
+    <div class="tampilan-desa">
+      <h1>
+        Selamat Datang <br />
+        di <br />
+        Website Resmi<br />
+        Pemerintah Desa Sungai-Jering <br />
+      </h1>
     </div>
-
-    <!--Initializing function Javascript-->
-    <script src="index.js"></script>
+    <div class="services">
+      <div>
+        <img src="layanan.png" alt="Layanan Masyarakat" />
+        <h3>Layanan Masyarakat</h3>
+      </div>
+      <div>
+        <img src="potensi.png" alt="Potensi Desa" />
+        <h3>Potensi Desa</h3>
+      </div>
+      <div>
+        <img src="pembangunan.png" alt="Pembangunan Desa" />
+        <h3>Pembangunan Desa</h3>
+      </div>
+      <div>
+        <img src="keuangan.png" alt="Keuangan Desa" />
+        <h3>Keuangan Desa</h3>
+      </div>
+    </div>
+    <div class="articles">
+      <div class="article">
+        <img src="pembangunan.jpg" alt="Program Pembangunan Desa" />
+        <div class="article-content">
+          <h2>Artikel 1: Program Pembangunan Desa</h2>
+          <p>
+            Desa Sungai Jering terus mengembangkan program pembangunan yang
+            bertujuan untuk meningkatkan kualitas hidup warga desa. Dalam
+            beberapa tahun terakhir, berbagai proyek infrastruktur telah
+            berhasil diselesaikan.
+          </p>
+        </div>
+      </div>
+      <div class="article">
+        <img src="pertanian.jpg" alt="Potensi Pertanian Desa" />
+        <div class="article-content">
+          <h2>Artikel 2: Potensi Pertanian Desa</h2>
+          <p>
+            Desa Sungai Jering memiliki potensi pertanian yang sangat besar.
+            Banyak warga desa yang menggantungkan hidupnya pada sektor
+            pertanian, khususnya padi dan palawija.
+          </p>
+        </div>
+      </div>
+      <div class="article">
+        <img src="pendidikan.jpg" alt="Pendidikan di Desa" />
+        <div class="article-content">
+          <h2>Artikel 3: Pendidikan di Desa</h2>
+          <p>
+            Pendidikan merupakan prioritas utama di Desa Sungai Jering. Dengan
+            adanya berbagai program beasiswa dan peningkatan sarana pendidikan,
+            diharapkan kualitas pendidikan di desa ini terus meningkat.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="announcements">
+      <h2>Pengumuman</h2>
+      <a href="#">Pengumuman 1: Rapat Desa</a>
+      <a href="#">Pengumuman 2: Pembangunan Jalan</a>
+      <a href="#">Pengumuman 3: Pemilihan Kepala Desa</a>
+    </div>
+    <div class="agenda">
+      <h2>Agenda Kegiatan</h2>
+      <a href="#">Kegiatan 1: Gotong Royong</a>
+      <a href="#">Kegiatan 2: Festival Desa</a>
+      <a href="#">Kegiatan 3: Lomba Desa</a>
+    </div>
+    <div class="news">
+      <h2>Berita Terkini</h2>
+      <a href="#">Berita 1: Perkembangan Proyek Irigasi</a>
+      <a href="#">Berita 2: Kegiatan Sosial di Desa</a>
+      <a href="#">Berita 3: Keberhasilan Panen Raya</a>
+    </div>
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section profile">
+          <h3>Profil</h3>
+          <p>Desa Sungai-Jering</p>
+          <p>Kabupaten Bandung Barat- Jawa Barat</p>
+          <p>
+            Website desa dibangun sebagai bagian dari SISTEM INFORMASI DESA yang
+            berfungsi sebagai portal informasi, transparansi, dan sosialisasi
+            pemerintah terkait tata kelola pembangunan kawasan perdesaan
+            (pembangunan, pembinaan dan pemberdayaan) yang dirasakan langsung
+            oleh masyarakat sebagai penerima manfaat.
+          </p>
+        </div>
+        <div class="footer-section links">
+          <h3>Tautan</h3>
+          <ul>
+            <li><a href="#">Kabupaten Bandung Barat</a></li>
+            <li><a href="#">KEMENDAGRI</a></li>
+            <li><a href="#">KEMENDESA</a></li>
+            <li><a href="#">KEMENKOMINFO</a></li>
+            <li><a href="#">Produk Desa Sungai-Jering</a></li>
+          </ul>
+        </div>
+        <div class="footer-section contact">
+          <h3>Kontak Kami</h3>
+          <p>Jl. Raya Tagog No. 128 Padalarang</p>
+          <p>Kode Pos 40553</p>
+          <p>📞 022-6623181</p>
+          <p>📧 pemdes@Sungai-Jering.desa.id</p>
+          <div class="socials">
+            <a href="https://web.facebook.com/?locale2=id_ID&_rdc=1&_rdr"
+              ><img src="fb.png" alt="Facebook"
+            /></a>
+            <a href="https://x.com/"><img src="tw.png" alt="Twitter" /></a>
+            <a href="https://www.instagram.com/accounts/login/"
+              ><img src="ig.png" alt="Instagram"
+            /></a>
+            <a href="https://www.youtube.com/"
+              ><img src="yt.png" alt="YouTube"
+            /></a>
+            <a href="https://web.whatsapp.com/"
+              ><img src="wa.png" alt="WhatsApp"
+            /></a>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
